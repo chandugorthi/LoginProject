@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace MyLoginProject
 {
@@ -510,17 +511,19 @@ namespace MyLoginProject
             {
                 sb.AppendLine("Please specify a User Name.");
             }
-            if (this.txtAccNo.Text.Length != 12)
+            if (!Regex.IsMatch(this.txtAccNo.Text, @"^[\d]{12}"))
             {
                 sb.AppendLine("Please enter a valid 12 digit Account Number.");
                 
             }
-            if(this.txtEmailId.Text.Length>50)
+            //if (this.txtEmailId.Text.Length > 50)
+             if (!Regex.IsMatch(this.txtEmailId.Text, @"^([a-zA-z0-9][a-zA-z0-9_\-\.]*[a-zA-z0-9])@(([a-zA-z0-9][a-zA-z0-9_\-\.]*[a-zA-z0-9])+\.(com|gov|edu|us|in))"))
+            //if(!Regex.IsMatch(this.txtEmailId.Text, @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\"))
             {
-                sb.AppendLine("EmailId Should be not exceed 50 characters.");
+                sb.AppendLine("Please Enter a valid email id not more than 50 Charaters.");
 
             }
-            if(this.txtContNo.Text.Length!=10)
+            if(!Regex.IsMatch(this.txtContNo.Text,@"^[\d]{10}"))
             {
                 sb.AppendLine("Please enter a valid 10 digit Contact Number.");
             }
@@ -528,7 +531,7 @@ namespace MyLoginProject
             {
                 sb.AppendLine("Address Should be not exceed 100 characters.");
             }
-            if (this.txtAddress.Text.Length > 100 || this.txtContNo.Text.Length != 10 || this.txtEmailId.Text.Length > 50 || this.txtAccNo.Text.Length != 12 || this.txtName.Text.Length > 50)
+            if (this.txtAddress.Text.Length > 100 || !Regex.IsMatch(this.txtContNo.Text, @"^[\d]{10}") || !Regex.IsMatch(this.txtEmailId.Text, @"^([a-zA-z0-9][a-zA-z0-9_\-\.]*[a-zA-z0-9])@(([a-zA-z0-9][a-zA-z0-9_\-\.]*[a-zA-z0-9])+\.(com|gov|edu|us|in))") || !Regex.IsMatch(this.txtAccNo.Text, @"^[\d]{12}") || this.txtName.Text.Length > 50|| this.txtName.Text.Trim().Length == 0)
 
             {
                 IsValidCount++;

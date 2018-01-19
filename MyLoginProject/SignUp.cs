@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace MyLoginProject
 {
@@ -104,14 +105,10 @@ namespace MyLoginProject
                         }
                         else
                         {
-                            if (this.txtAccNo.Text.Length != 12)
+                            //if (this.txtAccNo.Text.Length != 12)
+                            if(Regex.IsMatch(this.txtAccNo.Text,@"^[\d]{12}"))
                             {
-                                IsMatch = false;
-                                MessageBox.Show(this, "Please enter a valid 12 digit Account Number.", "Account Number Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                                                           }
-                            else
-                            {
                                 if (string.Equals(txtPassword.Text, txtReEnterPass.Text))
                                 {
                                     IsMatch = true;
@@ -121,6 +118,13 @@ namespace MyLoginProject
                                     IsMatch = false;
                                     MessageBox.Show(this, "Passwords doesn't match.Please reenter and try again.", "Create Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
+                                
+                            }
+                            else
+                            {
+                                IsMatch = false;
+                                MessageBox.Show(this, "Please enter a valid 12 digit Account Number.", "Account Number Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                             }
                         }
                     }
