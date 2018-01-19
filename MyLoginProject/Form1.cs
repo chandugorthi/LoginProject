@@ -94,5 +94,12 @@ namespace MyLoginProject
             //label1.Text = IsAdmin.ToString();
            
         }
+
+        private void SignUp_Click(object sender, EventArgs e)
+        {
+            SignUp su = new SignUp();
+            this.Hide();
+            su.Show();
+        }
     }
 }

@@ -216,7 +216,9 @@ namespace MyLoginProject
             catch (IndexOutOfRangeException ex)
             {
 
-                MessageBox.Show(this, "As per our records your profile is not yet updated. Please Visit your nearest CITI bank and update your profile.", "User's Data Unvailable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "As per our records your profile is not yet updated. Please click 'OK' to update your profile.", "User's Data Unvailable", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               // this.txtAccNo.Enabled = true;
+               // this.txtName.Text = this.name;
             }
             catch (Exception ex)
             {
@@ -253,6 +255,8 @@ namespace MyLoginProject
         private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+            Form1 f = new Form1();
+            f.Show();
         }
 
         private void UserDetails_Click(object sender, EventArgs e)

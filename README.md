@@ -4,13 +4,18 @@ This is demo application where a normal user/ admin can login.
 A normal user can view/edit his profile and view his transaction details. 
 An admin can view/edit his own profile, create new user, view all the user details and can view all the transactions of all the users.
 
-This application has 2 screens
+This application has 3 screens
 1. Login Screen : 
     a.This is the first screen when that apprears when the application is launched.
-    b.Facilitates user/admin to login, to enter the main screen.
+    b.Facilitates user/admin to login, to enter the main screen or to Signup.
     c.Admin Credentials- UserName:haritha ; Password: haritha
     d.Sample Normal user Credentials- UserName: chandu ; Password: chandu
-2. Main Screen(Citi User Info):
+
+2. SignUp screen:
+   a. This screen is shown when the user clicks on SignUp button in Login screen.
+   b. To create his/her account user needs to provide, username, password and Account Number.
+
+3. Main Screen(Citi User Info):
    Has 2 items in the menu bar. 
     a.The first menu item has 2 submenu items(Profile, logout).
       Profile: 
