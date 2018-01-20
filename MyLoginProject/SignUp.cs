@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Configuration;
 
 namespace MyLoginProject
 {
@@ -38,7 +39,7 @@ namespace MyLoginProject
             {
                 try
                 {
-                    using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                    using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                     {
                         using (SqlCommand cmd = new SqlCommand("sp_CreateNewUser", con))
                         {
@@ -85,7 +86,7 @@ namespace MyLoginProject
             //Check if UserName already Exrists
             try
             {
-                using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_getUserId", con))
                     {

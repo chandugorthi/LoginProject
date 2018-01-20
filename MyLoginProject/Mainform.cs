@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using System.Configuration;
 
 namespace MyLoginProject
 {
@@ -192,7 +193,7 @@ namespace MyLoginProject
 
             try
             {
-                using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_getUserProfile", con))
                     {
@@ -270,7 +271,7 @@ namespace MyLoginProject
 
 
 
-                using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_getAllUsersDetails", con))
                     {
@@ -321,7 +322,7 @@ namespace MyLoginProject
             {
 
 
-                using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_getTransactionDetails", con))
                     {
@@ -428,7 +429,7 @@ namespace MyLoginProject
             count = 0;
             try
             {
-                using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                 {
                     using (SqlCommand cmd1 = new SqlCommand("sp_getUserId", con))
                     {

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 namespace MyLoginProject
@@ -36,10 +37,12 @@ namespace MyLoginProject
         private void btnLogin_Click(object sender, EventArgs e)
         {
             IsAdmin = false ;
+            
 
             try
             {
-                using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                // using (SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=CITI;Integrated Security=True;Pooling=False"))
+                using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["CITIDbConnString"].ConnectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand("sp_IsValidUser", con))
                     {
