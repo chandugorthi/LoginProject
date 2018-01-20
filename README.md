@@ -33,6 +33,8 @@ This application has 3 screens
          i. Normal user: Can view only his transactions.
          ii. Admin: can view the transaction details of all the users.
 
+P.S: Please use the .mdf file to replicate the database in your local SQL server. You may change the connection string in the App.config file appropriately.
+
 
  
  
